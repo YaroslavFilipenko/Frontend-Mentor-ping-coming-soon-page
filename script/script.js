@@ -1,19 +1,19 @@
-$(document).ready(function() {
-    const formButton = $('.form__button');
-    const emailInput = $('.email');
-    const errorMessage = $('.error-message');
+document.addEventListener('DOMContentLoaded', function() {
+    const formButton = document.querySelector('.form__button');
+    const emailInput = document.querySelector('.email');
+    const errorMessage = document.querySelector('.error-message');
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
-    formButton.on('click', function(e) {
+    formButton.addEventListener('click', function(e) {
       e.preventDefault();
   
-    if (emailInput == '' || !emailPattern.test(emailInput.val())) {
-        emailInput.addClass('error');
-        errorMessage.css('display', 'flex');
-    } else {
-        emailInput.removeClass('error');
-        errorMessage.css('display', 'none');
-        form.reset();
-    }
+      if (emailInput.value === '' || !emailPattern.test(emailInput.value)) {
+        emailInput.classList.add('error');
+        errorMessage.style.display = 'flex';
+      } else {
+        emailInput.classList.remove('error');
+        errorMessage.style.display = 'none';
+        document.forms[0].reset();
+      }
     });
 });
